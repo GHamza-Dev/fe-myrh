@@ -10,12 +10,36 @@ import {Offer} from "../models/offer";
 export class OffersComponent implements OnInit{
 
   offers: Offer[] = [];
+  totalPages: number[] = [];
+  number: number = 0;
+  first: boolean = true;
+  last: boolean = true;
   constructor(private offerService: OfferService) {
   }
 
   ngOnInit(): void {
-    this.offerService.getOffers().subscribe(
-      (res) => this.offers = res.data
+    this.offerService.getOffers(0,5).subscribe(
+      (res) => {
+        this.offers = res.data;
+        this.totalPages = Array.from(Array(res.pagination?.['totalPages']),(x,i)=>i)
+        this.number = res.pagination?.['number'];
+        this.first = res.pagination?.['first'];
+        this.last = res.pagination?.['last'];
+        console.log(res)
+      }
+    )
+  }
+
+  getOffersByPage(page: number){
+    this.offerService.getOffers(page,5).subscribe(
+      (res) => {
+        this.offers = res.data;
+        this.totalPages = Array.from(Array(res.pagination?.['totalPages']),(x,i)=>i)
+        this.number = res.pagination?.['number'];
+        this.first = res.pagination?.['first'];
+        this.last = res.pagination?.['last'];
+        console.log(res)
+      }
     )
   }
 

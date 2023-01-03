@@ -6,4 +6,17 @@
     <p> Education: {{offer?.education?.name}} </p>
     <p> Salary: {{offer.salary}} </p>
   </div>
+  <div>
+    <button (click)="getOffersByPage(number-1)" [disabled]="first" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
+      back
+    </button>
+
+    <button *ngFor="let pageNumber of totalPages" (click)="getOffersByPage(pageNumber)"  class="p-3 bg-blue-600 text-white mx-0.5 rounded cursor-pointer" >
+      {{ pageNumber }}
+    </button>
+
+    <button (click)="getOffersByPage(number+1)" [disabled]="last" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
+      next
+    </button>
+  </div>
 </div>

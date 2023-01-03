@@ -8,7 +8,7 @@ import {AppResponse} from "../../models/app-response";
 export class OfferService {
   constructor(private http: HttpClient) { }
 
-  getOffers(){
-    return this.http.get<AppResponse>('http://localhost:8080/offers/all');
+  getOffers(page: number, size: number){
+    return this.http.get<AppResponse>(`http://localhost:8080/offers/all?page=${page}&size=${size}`);
   }
 }
