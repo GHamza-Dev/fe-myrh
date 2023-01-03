@@ -1,0 +1,9 @@
+<div>
+  <h1 class="m-3 text-2xl">List of offers --</h1>
+  <div *ngFor="let offer of offers" class="p-3 border border-green-700 rounded m-3">
+    <p> Title: {{offer.title}} | Job title: {{offer?.jobTitle?.name}} </p>
+    <p> City: {{offer.description}} </p>
+    <p> Education: {{offer?.education?.name}} </p>
+    <p> Salary: {{offer.salary}} </p>
+  </div>
+</div>
