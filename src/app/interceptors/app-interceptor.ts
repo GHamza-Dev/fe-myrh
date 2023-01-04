@@ -25,6 +25,8 @@ export class AppInterceptor implements HttpInterceptor {
 
     if (token && route.data && route.data?.['guard'] === 'AuthorizeGuard'){
 
+      console.info("Intercepted by AppInterceptor")
+
       const clonedRequest = request.clone({
         headers: request.headers.set("Authorization",
           "Bearer " + token)

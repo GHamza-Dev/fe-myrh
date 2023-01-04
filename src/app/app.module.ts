@@ -11,6 +11,7 @@ import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 import { OffersListComponent } from './offers/offers-list/offers-list.component';
 import {OffersComponent} from "./offers/offers.component";
 import {AppInterceptor} from "./interceptors/app-interceptor";
+import { RegisterRecruiterComponent } from './recruiter/register-recruiter/register-recruiter.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {AppInterceptor} from "./interceptors/app-interceptor";
     HomeComponent,
     OffersComponent,
     OfferItemComponent,
-    OffersListComponent
+    OffersListComponent,
+    RegisterRecruiterComponent
   ],
   imports: [
     BrowserModule,

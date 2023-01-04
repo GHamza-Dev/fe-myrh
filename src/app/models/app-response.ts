@@ -3,4 +3,6 @@ export interface AppResponse {
   status: number;
   data: any[];
   pagination?: { [key: string]: any }
+
+  errors?: { [key: string]: any }
 }
