@@ -12,6 +12,7 @@ import { OffersListComponent } from './offers/offers-list/offers-list.component'
 import {OffersComponent} from "./offers/offers.component";
 import {AppInterceptor} from "./interceptors/app-interceptor";
 import { RegisterRecruiterComponent } from './recruiter/register-recruiter/register-recruiter.component';
+import { UpdateProfileImageComponent } from './recruiter/profile-image/update-profile-image/update-profile-image.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegisterRecruiterComponent } from './recruiter/register-recruiter/regis
     OffersComponent,
     OfferItemComponent,
     OffersListComponent,
-    RegisterRecruiterComponent
+    RegisterRecruiterComponent,
+    UpdateProfileImageComponent
   ],
   imports: [
     BrowserModule,

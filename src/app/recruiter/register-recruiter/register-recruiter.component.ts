@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {RegisterService} from "../../services/recruiter/register.service";
+import {RegisterService} from "../../services/recruiter/register/register.service";
 import {Recruiter} from "../../models/recruiter";
 
 @Component({
