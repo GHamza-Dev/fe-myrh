@@ -3,7 +3,7 @@ import {OfferService} from "../services/offer/offer.service";
 import {Offer} from "../models/offer";
 
 @Component({
-  selector: 'app-offers',
+  selector: 'app-offer',
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.scss']
 })

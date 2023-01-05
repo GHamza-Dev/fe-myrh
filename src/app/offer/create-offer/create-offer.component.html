@@ -1,0 +1,38 @@
+<p>Register recruiter --</p>
+<form [formGroup]="form" >
+  <fieldset>
+    <legend>Create offer</legend>
+    <div class="form-field">
+      <label>Title:</label>
+      <input name="title" formControlName="title" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>Description</label>
+      <input name="description" formControlName="description" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>City</label>
+      <input name="city" formControlName="city" type="tel" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>JobTitle:</label>
+      <select name="jobTitleId" formControlName="jobTitleId" class="p-2 border">
+        <option *ngFor="let jt of jobTitlesList" [value]="jt.id">{{ jt.name }}</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label>Education:</label>
+      <select name="educationId" formControlName="educationId" class="p-2 border">
+        <option *ngFor="let ed of educationsList" [value]="ed.id">{{ ed.name }}</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label>Salary</label>
+      <input name="salary" formControlName="salary" type="number" class="p-2 border">
+    </div>
+  </fieldset>
+  <div class="form-buttons">
+    <button (click)="createOffer()" class="button button-primary p-2 bg-cyan-600 text-white">Register</button>
+  </div>
+
+</form>

@@ -7,12 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { OfferItemComponent } from './offers/offer-item/offer-item.component';
-import { OffersListComponent } from './offers/offers-list/offers-list.component';
-import {OffersComponent} from "./offers/offers.component";
+import { OfferItemComponent } from './offer/offer-item/offer-item.component';
+import { OffersListComponent } from './offer/offer-list/offers-list.component';
+import {OffersComponent} from "./offer/offers.component";
 import {AppInterceptor} from "./interceptors/app-interceptor";
 import { RegisterRecruiterComponent } from './recruiter/register-recruiter/register-recruiter.component';
 import { UpdateProfileImageComponent } from './recruiter/profile-image/update-profile-image/update-profile-image.component';
+import {CreateOfferComponent} from "./offer/create-offer/create-offer.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UpdateProfileImageComponent } from './recruiter/profile-image/update-pr
     OfferItemComponent,
     OffersListComponent,
     RegisterRecruiterComponent,
-    UpdateProfileImageComponent
+    UpdateProfileImageComponent,
+    CreateOfferComponent
   ],
   imports: [
     BrowserModule,
