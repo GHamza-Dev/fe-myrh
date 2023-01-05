@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Recruiter} from "../../../models/recruiter";
-import {AuthResponse} from "../../../models/auth-response";
 import {AppResponse} from "../../../models/app-response";
+import {env} from "config/env"
+
+const url = env.url;
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,6 @@ export class RegisterService {
     const headers = new HttpHeaders({
       'Content-Type':'application/json'
     });
-    return this.http.post<AppResponse>('http://localhost:8080/recruiters/register',recruiter,{headers});
+    return this.http.post<AppResponse>(`${url}/recruiters/register`,recruiter,{headers});
   }
 }

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AppResponse} from "../../models/app-response";
 import {Offer} from "../../models/offer";
+import {env} from "config/env";
+
+const url = env.url;
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +16,18 @@ export class OfferService {
     const headers = new HttpHeaders({
       'Content-Type':'application/json'
     });
-    return this.http.post<AppResponse>(`http://localhost:8080/offers/create`,offer, {headers});
+    return this.http.post<AppResponse>(`${url}/offers/create`,offer, {headers});
   }
 
   getOffers(page: number, size: number){
-    return this.http.get<AppResponse>(`http://localhost:8080/offers/all?page=${page}&size=${size}`);
+    return this.http.get<AppResponse>(`${url}/offers/all?page=${page}&size=${size}`);
   }
 
   getEducationList(){
-    return this.http.get<AppResponse>(`http://localhost:8080/educations/all`);
+    return this.http.get<AppResponse>(`${url}/educations/all`);
   }
 
   getJobTitlesList(){
-    return this.http.get<AppResponse>(`http://localhost:8080/job-titles/all`);
+    return this.http.get<AppResponse>(`${url}/job-titles/all`);
   }
 }
