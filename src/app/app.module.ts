@@ -14,6 +14,8 @@ import {AppInterceptor} from "./interceptors/app-interceptor";
 import { RegisterRecruiterComponent } from './recruiter/register-recruiter/register-recruiter.component';
 import { UpdateProfileImageComponent } from './recruiter/profile-image/update-profile-image/update-profile-image.component';
 import {CreateOfferComponent} from "./offer/create-offer/create-offer.component";
+import { MainComponent } from './layout/main/main.component';
+import { NavComponent } from './components/inc/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {CreateOfferComponent} from "./offer/create-offer/create-offer.component"
     OffersListComponent,
     RegisterRecruiterComponent,
     UpdateProfileImageComponent,
-    CreateOfferComponent
+    CreateOfferComponent,
+    MainComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
