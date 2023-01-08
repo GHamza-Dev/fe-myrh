@@ -17,6 +17,7 @@ import { MainComponent } from './layout/main/main.component';
 import { NavComponent } from './components/nav/nav.component';
 import {MatIconModule} from "@angular/material/icon";
 import { PaginationComponent } from './components/pagination/pagination/pagination.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PaginationComponent } from './components/pagination/pagination/paginati
     CreateOfferComponent,
     MainComponent,
     NavComponent,
-    PaginationComponent
+    PaginationComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
