@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit{
+export class PaginationComponent implements OnChanges{
 
   @Input() first!: boolean
   @Input() last!: boolean
@@ -17,11 +17,9 @@ export class PaginationComponent implements OnInit{
   @Output() onPageNumberClick = new EventEmitter();
 
   pagesNumbers!: number[]
-  ngOnInit(): void {
-    setTimeout(()=>{
-      console.warn("Why I am inside a setTimeout function?\nPlease fix me!")
-      this.pagesNumbers = Array.from(Array(this.totalPages),(x,i)=>i)
-    },100)
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.pagesNumbers = Array.from(Array(this.totalPages),(x,i)=>i)
   }
 
   handleBackClick(){
