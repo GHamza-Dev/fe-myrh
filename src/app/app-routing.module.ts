@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthorizeGuard } from './services/auth/guards/authorize.guard';
 import {OffersComponent} from "./offer/offers.component";
@@ -8,8 +7,7 @@ import {RegisterRecruiterComponent} from "./recruiter/register-recruiter/registe
 import {CreateOfferComponent} from "./offer/create-offer/create-offer.component";
 
 const routes: Routes = [
-  {path: "", component: HomeComponent, canActivate: [AuthorizeGuard]},
-  {path: "home", component: HomeComponent, canActivate: [AuthorizeGuard]},
+  {path: "", component: OffersComponent},
   {path: "login", component: LoginComponent},
   {path: "offers", component: OffersComponent},
   {path: "recruiters/register", component: RegisterRecruiterComponent},

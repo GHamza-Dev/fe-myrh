@@ -1,5 +1,6 @@
 import {Education} from "./education";
 import {JobTitle} from "./job-title";
+import {Recruiter} from "./recruiter";
 
 export interface Offer {
   title: string;
@@ -10,4 +11,5 @@ export interface Offer {
   jobTitleId?: number;
   education?: Education;
   jobTitle?: JobTitle
+  recruiter?: Recruiter
 }

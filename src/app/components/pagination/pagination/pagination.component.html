@@ -1,0 +1,13 @@
+<div>
+  <button (click)="handleBackClick()" [disabled]="first" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
+    back
+  </button>
+
+  <button *ngFor="let pageNumber of pagesNumbers" (click)="handlePageNumberClick(pageNumber)"  class="p-3 bg-blue-600 text-white mx-0.5 rounded cursor-pointer" >
+    {{ pageNumber }}
+  </button>
+
+  <button (click)="handleNextClick()" [disabled]="last" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
+    next
+  </button>
+</div>

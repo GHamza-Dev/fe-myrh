@@ -10,7 +10,7 @@ import {Offer} from "../models/offer";
 export class OffersComponent implements OnInit{
 
   offers: Offer[] = [];
-  totalPages: number[] = [];
+  totalPages!: number;
   number: number = 0;
   first: boolean = true;
   last: boolean = true;
@@ -21,7 +21,7 @@ export class OffersComponent implements OnInit{
     this.offerService.getOffers(0,5).subscribe(
       (res) => {
         this.offers = res.data;
-        this.totalPages = Array.from(Array(res.pagination?.['totalPages']),(x,i)=>i)
+        this.totalPages = res.pagination?.['totalPages'];
         this.number = res.pagination?.['number'];
         this.first = res.pagination?.['first'];
         this.last = res.pagination?.['last'];
@@ -34,7 +34,7 @@ export class OffersComponent implements OnInit{
     this.offerService.getOffers(page,5).subscribe(
       (res) => {
         this.offers = res.data;
-        this.totalPages = Array.from(Array(res.pagination?.['totalPages']),(x,i)=>i)
+        this.totalPages = res.pagination?.['totalPages']
         this.number = res.pagination?.['number'];
         this.first = res.pagination?.['first'];
         this.last = res.pagination?.['last'];

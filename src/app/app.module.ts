@@ -6,7 +6,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { OfferItemComponent } from './offer/offer-item/offer-item.component';
 import { OffersListComponent } from './offer/offer-list/offers-list.component';
 import {OffersComponent} from "./offer/offers.component";
@@ -15,13 +14,14 @@ import { RegisterRecruiterComponent } from './recruiter/register-recruiter/regis
 import { UpdateProfileImageComponent } from './recruiter/profile-image/update-profile-image/update-profile-image.component';
 import {CreateOfferComponent} from "./offer/create-offer/create-offer.component";
 import { MainComponent } from './layout/main/main.component';
-import { NavComponent } from './components/inc/nav/nav.component';
+import { NavComponent } from './components/nav/nav.component';
+import {MatIconModule} from "@angular/material/icon";
+import { PaginationComponent } from './components/pagination/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     OffersComponent,
     OfferItemComponent,
     OffersListComponent,
@@ -29,14 +29,16 @@ import { NavComponent } from './components/inc/nav/nav.component';
     UpdateProfileImageComponent,
     CreateOfferComponent,
     MainComponent,
-    NavComponent
+    NavComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
