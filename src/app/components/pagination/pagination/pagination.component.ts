@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Pagination} from "../../../models/pagination";
 
 @Component({
   selector: 'app-pagination',
@@ -7,10 +8,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 })
 export class PaginationComponent implements OnChanges{
 
-  @Input() first!: boolean
-  @Input() last!: boolean
-  @Input() pageNumber!: number
-  @Input() totalPages!: number
+  @Input() pagination!: Pagination;
 
   @Output() onNext = new EventEmitter()
   @Output() onBack = new EventEmitter()
@@ -19,7 +17,7 @@ export class PaginationComponent implements OnChanges{
   pagesNumbers!: number[]
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.pagesNumbers = Array.from(Array(this.totalPages),(x,i)=>i)
+    this.pagesNumbers = Array.from(Array(this.pagination.totalPages),(x,i)=>i)
   }
 
   handleBackClick(){

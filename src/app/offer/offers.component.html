@@ -6,11 +6,10 @@
     <!-- Pagination -->
     <div class="mt-3">
       <app-pagination
-        [totalPages]="totalPages"
-        [first]="first" [last]="last" [pageNumber]="number"
+        [pagination]="pagination"
         (onPageNumberClick)="getOffersByPage($event)"
-        (onNext)="getOffersByPage(number+1)"
-        (onBack)="getOffersByPage(number-1)"
+        (onNext)="getOffersByPage(pagination.number+1)"
+        (onBack)="getOffersByPage(pagination.number-1)"
       ></app-pagination>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <div>
-  <button (click)="handleBackClick()" [disabled]="first" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
+  <button (click)="handleBackClick()" [disabled]="pagination.first" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
     back
   </button>
 
@@ -7,7 +7,7 @@
     {{ pageNumber }}
   </button>
 
-  <button (click)="handleNextClick()" [disabled]="last" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
+  <button (click)="handleNextClick()" [disabled]="pagination.last" class="p-3 bg-green-600 text-white mx-0.5 rounded cursor-pointer disabled:bg-gray-600" >
     next
   </button>
 </div>
