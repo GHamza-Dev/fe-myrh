@@ -18,6 +18,7 @@ import { NavComponent } from './components/nav/nav.component';
 import {MatIconModule} from "@angular/material/icon";
 import { PaginationComponent } from './components/pagination/pagination/pagination.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { ViewOfferComponent } from './offer/view-offer/view-offer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LogoComponent } from './components/logo/logo.component';
     MainComponent,
     NavComponent,
     PaginationComponent,
-    LogoComponent
+    LogoComponent,
+    ViewOfferComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,8 @@ import {Offer} from "../models/offer";
 export class OffersComponent implements OnInit{
 
   offers: Offer[] = [];
+  selectedOffer!: Offer;
+  viewOfferOpened: boolean = false
   totalPages!: number;
   number: number = 0;
   first: boolean = true;
@@ -25,6 +27,11 @@ export class OffersComponent implements OnInit{
         this.number = res.pagination?.['number'];
         this.first = res.pagination?.['first'];
         this.last = res.pagination?.['last'];
+
+        this.offerService.setOffer(res.data[0])
+        this.offerService.selectedOffer$.subscribe((_offer)=>{
+          this.selectedOffer = <Offer>_offer
+        })
         console.log(res)
       }
     )

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Offer} from "../../models/offer";
 
 @Component({
@@ -8,5 +8,8 @@ import {Offer} from "../../models/offer";
 })
 export class OffersListComponent {
   @Input() offers!: Offer[]
-  
+  @Output() onOfferClick = new EventEmitter()
+  handelOfferClick(){
+    this.onOfferClick.emit()
+  }
 }

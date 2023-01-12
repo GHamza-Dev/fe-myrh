@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AppResponse} from "../../models/app-response";
 import {Offer} from "../../models/offer";
 import {env} from "config/env";
+import {BehaviorSubject} from "rxjs";
 
 const url = env.url;
 
@@ -10,6 +11,14 @@ const url = env.url;
   providedIn: 'root'
 })
 export class OfferService {
+
+  private offer$ = new BehaviorSubject({})
+  selectedOffer$ = this.offer$.asObservable()
+
+  setOffer(offer: Offer){
+    this.offer$.next(offer)
+  }
+
   constructor(private http: HttpClient) { }
 
   createOffer(offer: Offer){

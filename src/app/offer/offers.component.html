@@ -1,12 +1,22 @@
-<div class="flex flex-col gap-1 mt-3">
+<div class="mt-3 relative flex gap-3">
   <!-- Offers list -->
-  <app-offers-list [offers]="offers"></app-offers-list>
-  <!-- Pagination -->
-  <app-pagination
-    [totalPages]="totalPages"
-    [first]="first" [last]="last" [pageNumber]="number"
-    (onPageNumberClick)="getOffersByPage($event)"
-    (onNext)="getOffersByPage(number+1)"
-    (onBack)="getOffersByPage(number-1)"
-  ></app-pagination>
+  <div class="flex-1">
+    <!-- Offers list -->
+    <app-offers-list (onOfferClick)="viewOfferOpened = true" [offers]="offers"></app-offers-list>
+    <!-- Pagination -->
+    <div class="mt-3">
+      <app-pagination
+        [totalPages]="totalPages"
+        [first]="first" [last]="last" [pageNumber]="number"
+        (onPageNumberClick)="getOffersByPage($event)"
+        (onNext)="getOffersByPage(number+1)"
+        (onBack)="getOffersByPage(number-1)"
+      ></app-pagination>
+    </div>
+  </div>
+  <!-- View offer -->
+  <div class="absolute w-full h-screen overflow-x-auto bg-gray-100 p-2 left-0 top-0 p-3 rounded lg:static lg:w-auto flex-1" [class]="!viewOfferOpened ? 'hidden lg:block' : ''" >
+    <span (click)="viewOfferOpened = false" class="text-sm font-light underline cursor-pointer absolute right-6 top-6 lg:hidden">close</span>
+    <app-view-offer [offer]="selectedOffer"></app-view-offer>
+  </div>
 </div>
