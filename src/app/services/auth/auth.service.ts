@@ -25,6 +25,6 @@ export class AuthService {
 
   logout(){
     this.storageService.remove("token");
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/offers');
   }
 }

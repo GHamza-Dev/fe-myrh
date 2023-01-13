@@ -32,7 +32,7 @@ export class LoginComponent {
           console.log(res)
           if(res.status == 200){
             this.localStorageService.set("token",res.token);
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/offers');
           }else{
             this.router.navigateByUrl('/login');
           }
