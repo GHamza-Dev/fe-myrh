@@ -27,7 +27,7 @@ export class LoginComponent {
     const values = this.form.value;
 
     if(values.email && values.password){
-      this.authService.login(values.email,values.password).subscribe(
+      this.authService.authenticate(values.email,values.password).subscribe(
         (res) => {
           console.log(res)
           if(res.status == 200){

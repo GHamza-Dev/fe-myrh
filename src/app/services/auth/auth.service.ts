@@ -16,7 +16,7 @@ export class AuthService {
               private router: Router,
               private storageService: StorageService) { }
 
-  login(email: string, password: string){
+  authenticate(email: string, password: string){
     const headers = new HttpHeaders({
       'Content-Type':'application/json'
     });
