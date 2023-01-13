@@ -38,6 +38,10 @@ export class JwtTokenService {
     return this.decodedToken ? this.decodedToken?.['exp'] : 0;
   }
 
+  getRoles(): string[]{
+    this.decodeToken()
+    return this.decodedToken ? this.decodedToken?.['roles'] : [];
+  }
   isTokenExpired(): boolean {
     const expiryTime: number = this.getExpiryTime();
     if (expiryTime) {
