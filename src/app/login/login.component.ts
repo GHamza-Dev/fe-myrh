@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
-import { LocalStorageService } from '../services/storage/local-storage.service';
+import { StorageService } from '../services/storage/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private localStorageService: LocalStorageService,
+    private localStorageService: StorageService,
     private router: Router){
     this.form = this.fb.group({
       email: "",
@@ -39,6 +39,6 @@ export class LoginComponent {
         }
       )
     }
-    
+
   }
 }

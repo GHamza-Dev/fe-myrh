@@ -6,13 +6,13 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {LocalStorageService} from "../services/storage/local-storage.service";
+import {StorageService} from "../services/storage/storage.service";
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
 
   constructor(
-    private localStorageService: LocalStorageService
+    private localStorageService: StorageService
     ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {

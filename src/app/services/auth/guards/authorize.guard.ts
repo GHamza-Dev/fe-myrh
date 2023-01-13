@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LocalStorageService } from '../../storage/local-storage.service';
+import { StorageService } from '../../storage/storage.service';
 import { JwtTokenService } from '../jwt-token.service';
 
 @Injectable({
@@ -10,19 +10,19 @@ import { JwtTokenService } from '../jwt-token.service';
 export class AuthorizeGuard implements CanActivate {
 
   constructor(
-    private localStorageService: LocalStorageService,
+    private storageService: StorageService,
     private jwtTokenService: JwtTokenService,
     private router: Router){
-      
+
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
     console.log("Inside auth guard");
-      
-    const token = this.localStorageService.get('token');
+
+    const token = this.storageService.get('token');
 
     if(!token) {
       this.router.navigateByUrl("/login");
@@ -43,5 +43,5 @@ export class AuthorizeGuard implements CanActivate {
 
     return true;
   }
-  
+
 }
