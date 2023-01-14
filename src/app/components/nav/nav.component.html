@@ -4,8 +4,8 @@
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="home">Home</a></li>
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers">Offers</a></li>
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="recruiters/register">Register Recruiter</a></li>
-    <li *ngIf="user.roles && user.roles.includes('ROLE_RECRUITER')"><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers/create">Create Offer</a></li>
-    <li *ngIf="user.authenticated" class="relative">
+    <li *appAuthorized="'RECRUITER'"><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers/create">Create Offer</a></li>
+    <li *appAuthorized="'*'" class="relative">
       <div (click)="dropDownMenuOpened = !dropDownMenuOpened" class="bg-primary w-10 h-10 rounded-full overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:bg-purple-900 focus:outline-none">
         <p class="text-white font-bold text-xl">{{ user.username.slice(0,1) | titlecase }}</p>
       </div>

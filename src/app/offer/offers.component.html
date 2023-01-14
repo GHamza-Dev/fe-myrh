@@ -19,7 +19,7 @@
 
     <app-view-offer [offer]="selectedOffer"></app-view-offer>
 
-    <div *ngIf="principal.roles && principal.roles.includes('ROLE_AGENT')" class="absolute bottom-0 left-4 right-4 pb-3">
+    <div *appAuthorized="'AGENT'" class="absolute bottom-0 left-4 right-4 pb-3">
       <hr>
       <app-offer-review [offerId]="selectedOffer.id"></app-offer-review>
     </div>

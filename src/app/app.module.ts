@@ -20,6 +20,7 @@ import { PaginationComponent } from './components/pagination/pagination/paginati
 import { LogoComponent } from './components/logo/logo.component';
 import { ViewOfferComponent } from './offer/view-offer/view-offer.component';
 import { OfferReviewComponent } from './offer/offer-review/offer-review.component';
+import { AuthorizedDirective } from './directives/authorized.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { OfferReviewComponent } from './offer/offer-review/offer-review.componen
     PaginationComponent,
     LogoComponent,
     ViewOfferComponent,
-    OfferReviewComponent
+    OfferReviewComponent,
+    AuthorizedDirective
   ],
   imports: [
     BrowserModule,
