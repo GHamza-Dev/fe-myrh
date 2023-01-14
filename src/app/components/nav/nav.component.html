@@ -5,8 +5,18 @@
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers">Offers</a></li>
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="recruiters/register">Register Recruiter</a></li>
     <li *ngIf="user.roles && user.roles.includes('ROLE_RECRUITER')"><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers/create">Create Offer</a></li>
-    <li *ngIf="user.roles && user.roles.includes('ROLE_RECRUITER')" class="bg-neutral w-10 h-10 rounded-full overflow-hidden cursor-pointer">
-
+    <li *ngIf="user.authenticated" class="relative">
+      <div (click)="dropDownMenuOpened = !dropDownMenuOpened" class="bg-primary w-10 h-10 rounded-full overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:bg-purple-900 focus:outline-none">
+        <p class="text-white font-bold text-xl">{{ user.username.slice(0,1) | titlecase }}</p>
+      </div>
+      <div *ngIf="dropDownMenuOpened" class="absolute z-10 mt-2 w-56 right-0 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div class="py-1" role="none">
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+          <a href="#" class="flex items-center gap-1 text-red-600 block px-4 py-2 text-sm">
+            <mat-icon>logout</mat-icon> <span>Logout</span>
+          </a>
+        </div>
+      </div>
     </li>
   </ul>
 </nav>
