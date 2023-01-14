@@ -39,4 +39,8 @@ export class OfferService {
   getJobTitlesList(){
     return this.http.get<AppResponse>(`${url}/job-titles/all`);
   }
+
+  reviewOffer(data: FormData, decision: string){
+    return this.http.post<AppResponse>(`${url}/offers/${decision}`,data);
+  }
 }

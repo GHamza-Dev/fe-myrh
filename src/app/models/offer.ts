@@ -3,6 +3,7 @@ import {JobTitle} from "./job-title";
 import {Recruiter} from "./recruiter";
 
 export interface Offer {
+  id: number;
   title: string;
   description: string;
   city: string;

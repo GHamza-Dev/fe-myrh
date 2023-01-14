@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {OfferService} from "../services/offer/offer.service";
 import {Offer} from "../models/offer";
 import {Pagination} from "../models/pagination";
+import {Principal} from "../models/principal";
+import {AuthService} from "../services/auth/auth.service";
 
 @Component({
   selector: 'app-offer',
@@ -13,8 +15,9 @@ export class OffersComponent implements OnInit{
   offers: Offer[] = [];
   pagination!: Pagination;
   selectedOffer!: Offer;
+  principal!: Principal;
   viewOfferOpened: boolean = false
-  constructor(private offerService: OfferService) {
+  constructor(private offerService: OfferService, private auth: AuthService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +34,12 @@ export class OffersComponent implements OnInit{
 
       }
     )
+
+    this.auth.principal$.subscribe({
+      next: (value)=>{
+        this.principal = <Principal>value
+      }
+    })
   }
 
   getOffersByPage(page: number){

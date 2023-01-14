@@ -14,8 +14,14 @@
     </div>
   </div>
   <!-- View offer -->
-  <div class="absolute w-full h-screen overflow-x-auto bg-gray-100 p-2 left-0 top-0 p-3 rounded lg:static lg:w-auto flex-1" [class]="!viewOfferOpened ? 'hidden lg:block' : ''" >
+  <div class="absolute lg:relative w-full h-screen overflow-x-auto bg-gray-100 p-2 left-0 top-0 p-3 rounded lg:static lg:w-auto flex-1" [class]="!viewOfferOpened ? 'hidden lg:block' : ''" >
     <span (click)="viewOfferOpened = false" class="text-sm font-light underline cursor-pointer absolute right-6 top-6 lg:hidden">close</span>
+
     <app-view-offer [offer]="selectedOffer"></app-view-offer>
+
+    <div *ngIf="principal.roles && principal.roles.includes('ROLE_AGENT')" class="absolute bottom-0 left-4 right-4 pb-3">
+      <hr>
+      <app-offer-review [offerId]="selectedOffer.id"></app-offer-review>
+    </div>
   </div>
 </div>
