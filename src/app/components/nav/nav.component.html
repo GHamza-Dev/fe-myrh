@@ -12,9 +12,9 @@
       <div *ngIf="dropDownMenuOpened" class="absolute z-10 mt-2 w-56 right-0 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
         <div class="py-1" role="none">
           <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
-          <a href="#" class="flex items-center gap-1 text-red-600 block px-4 py-2 text-sm">
+          <button (click)="doLogout()" class="flex items-center gap-1 text-red-600 block px-4 py-2 text-sm">
             <mat-icon>logout</mat-icon> <span>Logout</span>
-          </a>
+          </button>
         </div>
       </div>
     </li>

@@ -14,10 +14,6 @@ export class AppComponent implements OnInit{
               private jwt: JwtTokenService) {
   }
 
-  logout(){
-    this.authService.logout()
-  }
-
   ngOnInit(): void {
     this.jwt.setToken(`eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWNydWl0ZXJAZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9SRUNSVUlURVIiXSwiZXhwIjoxNjczNjgwMjk5LCJpYXQiOjE2NzM2NDQyOTl9.t1TZyhfS4ByaufewqMUewP3EXXuckUFnuwH4NzQVJc0`)
     console.log(this.jwt.getDecodedToken())
