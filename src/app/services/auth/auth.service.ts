@@ -5,6 +5,8 @@ import {Router} from "@angular/router";
 import {StorageService} from "../storage/storage.service";
 import {env} from "config/env";
 import {JwtTokenService} from "./jwt-token.service";
+import {BehaviorSubject} from "rxjs";
+import {Principal} from "../../models/principal";
 
 const url = env.url;
 
@@ -13,6 +15,9 @@ const url = env.url;
 })
 export class AuthService {
 
+  private _principal$ = new BehaviorSubject({})
+  principal$ = this._principal$.asObservable()
+
   token!: string | null
   constructor(private http: HttpClient,
               private router: Router,
@@ -20,7 +25,10 @@ export class AuthService {
               private jwt: JwtTokenService) {
 
     this.token = localStorage.getItem('token')
-
+    if(this.token){
+      jwt.setToken(this.token)
+      this.setPrincipal(jwt.getPrinciple())
+    }
   }
 
   authenticate(email: string, password: string){
@@ -33,11 +41,28 @@ export class AuthService {
   logout(){
     this.storageService.remove("token");
     this.token = null;
+    this.resetPrincipal()
     this.router.navigateByUrl('/offers');
+  }
+
+  setPrincipal(p: Principal){
+    this._principal$.next(p)
+  }
+
+  resetPrincipal(){
+    let p: Principal = {
+      username: '',
+      image: null,
+      roles: [],
+      authenticated: false
+    }
+    this._principal$.next(p)
   }
 
   setToken(token: string){
     this.token = token
+    this.jwt.setToken(token)
+    this._principal$.next(this.jwt.getPrinciple())
   }
 
   isAuthorized(role: string = '*'): boolean{

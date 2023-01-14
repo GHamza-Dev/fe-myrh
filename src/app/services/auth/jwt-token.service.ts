@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwt_decode from "jwt-decode";
+import {Principal} from "../../models/principal";
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,16 @@ export class JwtTokenService {
     this.decodeToken()
     return this.decodedToken ? this.decodedToken?.['roles'] : [];
   }
+
+  getPrinciple(): Principal{
+    return {
+      username: this.getSubject(),
+      image: null,
+      roles: this.getRoles(),
+      authenticated: true
+    }
+  }
+
   isTokenExpired(): boolean {
     const expiryTime: number = this.getExpiryTime();
     if (expiryTime) {
