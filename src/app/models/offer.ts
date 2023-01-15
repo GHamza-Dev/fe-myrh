@@ -8,6 +8,7 @@ export interface Offer {
   description: string;
   city: string;
   salary: number;
+  createdAt: Date;
   educationId?: number;
   jobTitleId?: number;
   education?: Education;

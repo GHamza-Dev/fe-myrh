@@ -21,3 +21,11 @@
 <div class="rounded p-4 bg-gray-50 mt-3">
   <p>{{offer.description}}</p>
 </div>
+<!--  Salary  -->
+<div *ngIf="offer.salary" class="rounded p-4 bg-gray-50 mt-3 text-gray-600 flex items-center gap-1.5">
+  <mat-icon>money</mat-icon> <p>{{offer.salary}} DHs</p>
+</div>
+<!--  Education  -->
+<div class="rounded p-4 bg-gray-50 mt-3 text-gray-600 flex items-center gap-1.5">
+  <mat-icon>school</mat-icon> <p>{{offer.education?.name}}</p>
+</div>
