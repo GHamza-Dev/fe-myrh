@@ -21,6 +21,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { ViewOfferComponent } from './offer/view-offer/view-offer.component';
 import { OfferReviewComponent } from './offer/offer-review/offer-review.component';
 import { AuthorizedDirective } from './directives/authorized.directive';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthorizedDirective } from './directives/authorized.directive';
     LogoComponent,
     ViewOfferComponent,
     OfferReviewComponent,
-    AuthorizedDirective
+    AuthorizedDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
