@@ -27,18 +27,16 @@ export class LoginComponent {
     const values = this.form.value;
 
     if(values.email && values.password){
-      this.authService.authenticate(values.email,values.password).subscribe(
-        (res) => {
-          console.log(res)
-          if(res.status == 200){
-            this.localStorageService.set("token",res.token);
-            this.authService.setToken(res.token)
-            this.router.navigateByUrl('/offers');
-          }else{
-            this.router.navigateByUrl('/login');
-          }
+      this.authService.authenticate(values.email,values.password).subscribe({
+        next:(value)=>{
+          this.localStorageService.set("token",value.token);
+          this.authService.setToken(value.token)
+          this.router.navigateByUrl('/offers').then(r => r);
+        },
+        error:(err)=>{
+          alert("Wrong email or password!")
         }
-      )
+      })
     }
 
   }
