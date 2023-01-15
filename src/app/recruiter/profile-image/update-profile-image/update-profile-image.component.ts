@@ -26,13 +26,13 @@ export class UpdateProfileImageComponent {
 
     const formData = new FormData();
     formData.append('image',this.image,this.image.name)
-    this.profileImageService.update(formData).subscribe(
-      (res)=>{
-        alert(res.message);
-      },
-      (error)=>{
-        alert(error.errors.message);
-      }
-    )
+    this.profileImageService.update(formData).subscribe({
+    next: (res)=>{
+      alert(res.message);
+    },
+    error: (error)=>{
+      alert('Ops something went wrong, please try again!');
+    }
+    })
   }
 }

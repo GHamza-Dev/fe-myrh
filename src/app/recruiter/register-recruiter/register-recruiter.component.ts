@@ -10,6 +10,7 @@ import {Recruiter} from "../../models/recruiter";
 })
 export class RegisterRecruiterComponent {
   form!: FormGroup
+  registered = false;
 
   constructor(private fb: FormBuilder,private registerService: RegisterService) {
     this.form = this.fb.group({
@@ -25,7 +26,8 @@ export class RegisterRecruiterComponent {
     const recruiter: Recruiter = this.form.value;
     this.registerService.register(recruiter).subscribe(
       (res)=>{
-        alert(res.message)
+        alert("Account created successfully!\nPlease choose a profile image")
+        this.registered = true
       },
       (error)=>{
         alert(error.error.message)
