@@ -1,17 +1,29 @@
 <nav class="py-3 px-2 h-16 flex items-center justify-between border border-neutral rounded">
   <app-logo></app-logo>
-  <ul class="flex items-center">
+  <ul class="flex gap-1 items-center">
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="home">Home</a></li>
     <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers">Offers</a></li>
-    <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="recruiters/register">Register Recruiter</a></li>
+    <li *ngIf="!user.authenticated" class="relative">
+      <button (click)="ctaDropDownMenuOpened = !ctaDropDownMenuOpened" class="inline-block px-7 py-3 bg-blue-800 text-white font-medium leading-snug rounded-full shadow-md hover:bg-purple-900 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Recruiter?</button>
+      <div *ngIf="ctaDropDownMenuOpened" class="absolute z-10 mt-2 w-56 right-0 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div class="py-1" role="none">
+          <a (click)="ctaDropDownMenuOpened = false"  routerLink="recruiters/register" class="flex items-center gap-1 text-primary block px-4 py-2 text-sm" tabindex="-1">
+            <mat-icon>book</mat-icon> <span>Register</span>
+          </a>
+          <a (click)="ctaDropDownMenuOpened = false"  routerLink="login" class="flex items-center gap-1 text-primary block px-4 py-2 text-sm" tabindex="-1">
+            <mat-icon>login</mat-icon> <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </li>
     <li *appAuthorized="'RECRUITER'"><a class="p-2 text-neutral text-lg hover:underline" routerLink="offers/create">Create Offer</a></li>
     <li *appAuthorized="'*'" class="relative">
-      <div (click)="dropDownMenuOpened = !dropDownMenuOpened" class="bg-primary w-10 h-10 rounded-full overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:bg-purple-900 focus:outline-none">
+      <div (click)="profileDropDownMenuOpened = !profileDropDownMenuOpened" class="bg-primary w-10 h-10 rounded-full overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:bg-purple-900 focus:outline-none">
         <p class="text-white font-bold text-xl">{{ user.username.slice(0,1) | titlecase }}</p>
       </div>
-      <div *ngIf="dropDownMenuOpened" class="absolute z-10 mt-2 w-56 right-0 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <div *ngIf="profileDropDownMenuOpened" class="absolute z-10 mt-2 w-56 right-0 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
         <div class="py-1" role="none">
-          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Account settings</a>
           <button (click)="doLogout()" class="flex items-center gap-1 text-red-600 block px-4 py-2 text-sm">
             <mat-icon>logout</mat-icon> <span>Logout</span>
           </button>

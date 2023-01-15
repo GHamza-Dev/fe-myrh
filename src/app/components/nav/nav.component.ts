@@ -10,7 +10,8 @@ import {AuthService} from "../../services/auth/auth.service";
 export class NavComponent implements OnInit{
   user!: Principal
 
-  dropDownMenuOpened = false
+  profileDropDownMenuOpened = false
+  ctaDropDownMenuOpened = false
 
   constructor(private auth: AuthService) {
   }
