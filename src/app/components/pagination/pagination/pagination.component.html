@@ -1,15 +1,15 @@
-<div class="flex items-center justify-between border border-x-0">
-  <button (click)="handleBackClick()" [disabled]="pagination.first" class="p-2 text-primary mx-0.5 rounded cursor-pointer disabled:text-gray-400" >
-    back
+<div class="flex items-center justify-between border rounded">
+  <button (click)="handleBackClick()" [disabled]="pagination.first" class="flex items-center p-2 text-primary mx-0.5 rounded cursor-pointer disabled:text-gray-400" >
+    <mat-icon class="rotate-180">arrow_right_alt</mat-icon> <span>back</span>
   </button>
 
   <div>
-    <button *ngFor="let pageNumber of pagesNumbers" (click)="handlePageNumberClick(pageNumber)" [class]="pagination.number == pageNumber ? 'bg-primary text-white' : ''"  class="w-8 text-primary mx-0.5 rounded cursor-pointer rounded-full" >
+    <button *ngFor="let pageNumber of pagesNumbers" (click)="handlePageNumberClick(pageNumber)" [class]="pagination.number == pageNumber ? 'bg-primary text-white' : 'text-primary bg-transparent'"  class="w-7 rounded cursor-pointer rounded-full" >
       {{ pageNumber }}
     </button>
   </div>
 
-  <button (click)="handleNextClick()" [disabled]="pagination.last" class="p-2 text-primary mx-0.5 rounded cursor-pointer disabled:text-gray-400" >
-    next
+  <button (click)="handleNextClick()" [disabled]="pagination.last" class="flex items-center p-2 text-primary mx-0.5 rounded cursor-pointer disabled:text-gray-400" >
+    <span>next</span> <mat-icon>arrow_right_alt</mat-icon>
   </button>
 </div>
