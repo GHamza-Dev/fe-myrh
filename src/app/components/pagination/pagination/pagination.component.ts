@@ -17,7 +17,9 @@ export class PaginationComponent implements OnChanges{
   pagesNumbers!: number[]
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.pagesNumbers = Array.from(Array(this.pagination.totalPages),(x,i)=>i)
+    if(changes?.['pagination'] && changes?.['pagination'].currentValue){
+      this.pagesNumbers = Array.from(Array(this.pagination.totalPages),(x,i)=>i)
+    }
   }
 
   handleBackClick(){
