@@ -1,4 +1,4 @@
-<div class="flex items-center p-3 mt-3 space-x-6 bg-white rounded shadow-sm">
+<div class="flex flex-col gap-3 lg:flex-row p-3 mt-3 bg-white rounded shadow-sm">
   <div class="flex bg-gray-100 rounded flex-1">
     <input [(ngModel)]="title" class="bg-gray-100 rounded outline-none w-full h-full border-none p-3" type="text" placeholder="Offer by keyword..." />
   </div>
@@ -12,7 +12,7 @@
     <input [(ngModel)]="city" class="bg-gray-100 rounded outline-none w-full h-full border-none p-3" type="text" placeholder="Enter city name" />
   </div>
 
-  <button (click)="handleSearchClick()"  class="flex gap-x-1 items-center bg-blue-900 py-3 px-5 text-white font-semibold rounded hover:shadow-lg transition duration-3000 cursor-pointer">
+  <button (click)="handleSearchClick()"  class="flex gap-x-1 items-center justify-center bg-blue-900 py-3 px-5 text-white font-semibold rounded hover:shadow-lg transition duration-3000 cursor-pointer">
     <span>Search</span> <mat-icon class="text-gray-200">search</mat-icon>
   </button>
 </div>
