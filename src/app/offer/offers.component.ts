@@ -43,4 +43,20 @@ export class OffersComponent implements OnInit{
     )
   }
 
+  searchOffers(offer: any){
+    this.offerService.searchOffers(0,5, offer.title.toLowerCase(), offer.jobTitleId, offer.city.toLowerCase()).subscribe(
+      (res) => {
+        this.offers = res.data;
+        this.pagination = res.pagination;
+
+        this.offerService.setOffer(res.data[0])
+
+        this.offerService.selectedOffer$.subscribe((_offer)=>{
+          this.selectedOffer = <Offer>_offer
+        })
+
+      }
+    )
+  }
+
 }

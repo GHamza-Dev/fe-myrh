@@ -22,6 +22,7 @@ import { ViewOfferComponent } from './offer/view-offer/view-offer.component';
 import { OfferReviewComponent } from './offer/offer-review/offer-review.component';
 import { AuthorizedDirective } from './directives/authorized.directive';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchOffersComponent } from './offer/search-offers/search-offers.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ViewOfferComponent,
     OfferReviewComponent,
     AuthorizedDirective,
-    FooterComponent
+    FooterComponent,
+    SearchOffersComponent
   ],
   imports: [
     BrowserModule,

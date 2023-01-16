@@ -31,6 +31,9 @@ export class OfferService {
   getOffers(page: number, size: number){
     return this.http.get<AppResponse>(`${url}/offers/all?page=${page}&size=${size}`);
   }
+  searchOffers(page: number, size: number, title = '*', jobTitleId = 0, city = '*'){
+    return this.http.get<AppResponse>(`${url}/offers/search?page=${page}&size=${size}&title=${title}&jobTitleId=${jobTitleId}&city=${city}`);
+  }
 
   getEducationList(){
     return this.http.get<AppResponse>(`${url}/educations/all`);
